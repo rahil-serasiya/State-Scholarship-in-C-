@@ -1,0 +1,59 @@
+﻿@model Project.Models.SchlorshipCriteria
+
+@{
+    ViewBag.Title = "ScholarshipDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/ScholarshipProDetails.css" rel="stylesheet" type="text/css" />
+<center><h2 class="alert-success">Scholarship Details and criteria</h2></center>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal" id="table">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentageMerit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentageMerit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstituteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstituteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Institute_details.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Institute_details.CourseName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to portal", "Student", "ScholarshipRegistration  ")
+</p>

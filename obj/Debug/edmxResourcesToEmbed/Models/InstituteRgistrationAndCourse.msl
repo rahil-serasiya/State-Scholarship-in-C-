@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="institutemodelStoreContainer" CdmEntityContainer="InstituteRegistrationAndScholarship">
+    <EntitySetMapping Name="institutes">
+      <EntityTypeMapping TypeName="institutemodel.institute">
+        <MappingFragment StoreEntitySet="institute">
+          <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+          <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Ins_Password" ColumnName="Ins_Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="FavoritePet" ColumnName="FavoritePet" />
+          <ScalarProperty Name="FavoriteMovie" ColumnName="FavoriteMovie" />
+          <ScalarProperty Name="Luckynumber" ColumnName="Luckynumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institute_details">
+      <EntityTypeMapping TypeName="institutemodel.Institute_details">
+        <MappingFragment StoreEntitySet="Institute_details">
+          <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+          <ScalarProperty Name="institutionID" ColumnName="institutionID" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+          <ScalarProperty Name="ScholarshipAmount" ColumnName="ScholarshipAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchlorshipCriterias">
+      <EntityTypeMapping TypeName="institutemodel.SchlorshipCriteria">
+        <MappingFragment StoreEntitySet="SchlorshipCriteria">
+          <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+          <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+          <ScalarProperty Name="PercentageMerit" ColumnName="PercentageMerit" />
+          <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScholarshipRequests">
+      <EntityTypeMapping TypeName="institutemodel.ScholarshipRequest">
+        <MappingFragment StoreEntitySet="ScholarshipRequest">
+          <ScalarProperty Name="ScholarshipAmount" ColumnName="ScholarshipAmount" />
+          <ScalarProperty Name="ApprovedByInstitution" ColumnName="ApprovedByInstitution" />
+          <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="DateofApproval" ColumnName="DateofApproval" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+          <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+          <ScalarProperty Name="institutionName" ColumnName="institutionName" />
+          <ScalarProperty Name="institutionId" ColumnName="institutionId" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Requestid" ColumnName="Requestid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

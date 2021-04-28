@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StateScholarshipModelStoreContainer" CdmEntityContainer="StateScholarshipEntities">
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="StateScholarshipModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="User_category" ColumnName="User_category" />
+          <ScalarProperty Name="user_password" ColumnName="user_password" />
+          <ScalarProperty Name="FavouritePet" ColumnName="FavouritePet" />
+          <ScalarProperty Name="FavouriteMovie" ColumnName="FavouriteMovie" />
+          <ScalarProperty Name="LuckyNumber" ColumnName="LuckyNumber" />
+          <ScalarProperty Name="approvedByProvider" ColumnName="approvedByProvider" />
+          <ScalarProperty Name="approvedByInstitution" ColumnName="approvedByInstitution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

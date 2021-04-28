@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Project.Models.Institute_details>
+
+@{
+    ViewBag.Title = "ScholarshipDetailsYearWise";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<center><h2>Scholarship Details </h2></center>
+
+<p>
+    @Html.ActionLink("Print", "PrintAll", "institutes")
+</p>
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.institutionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipAmount)
+        </td>
+        
+    </tr>
+}
+
+</table>

@@ -1,0 +1,61 @@
+﻿@model Project.Models.Help
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/ScholarshipProDetails.css" rel="stylesheet" type="text/css" />
+<h2>Ticket Details</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal" id="table">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISSUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISSUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfTicket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfTicket)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

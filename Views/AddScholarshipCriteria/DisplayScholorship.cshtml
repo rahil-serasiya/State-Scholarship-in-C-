@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Project.Models.SchlorshipCriteria>
+
+@{
+    ViewBag.Title = "DisplayScholorship";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<center><h2 class="alert alert-info">Scholarship Criteria</h2></center>
+
+@if (TempData["AddCriteria"] != null)
+{
+    <h3 class="alert alert-success">@TempData["AddCriteria"]</h3>
+}
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PercentageMerit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnnualIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InstituteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentageMerit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstituteId)
+              
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipID)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "Edit", new { id = item.id })
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@Html.ActionLink("Back To Portal", "InstituteDashboard", "institutes")
+
+

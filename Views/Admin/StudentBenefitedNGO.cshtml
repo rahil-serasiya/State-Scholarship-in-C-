@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Project.Models.scholarshipdetail>
+
+@{
+    ViewBag.Title = "StudentBenefitedNGO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>Student Benefited NGO</h2></center>
+
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<p>
+    @Html.ActionLink("Print", "AllBenefittedStudentsNGO", "Admin")
+</p>
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.student_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DemoCourse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.College)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvedbyScholarshipProvider)
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DemoCourse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.College)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedbyScholarshipProvider)
+            </td>
+           
+          
+        </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back", "AdminPortal", "Admin")
+</div>

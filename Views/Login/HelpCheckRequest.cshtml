@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Project.Models.Help>
+
+@{
+    ViewBag.Title = "HelpCheckRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+
+<h2 class="alert alert-info">Check Request<i class="fa fa-phone" style="font-size:48px;color:forestgreen;float:right;"> &nbsp; 180018001800</i></h2>
+
+
+
+<table id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISSUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resolution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solved)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISSUE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfTicket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resolution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solved)
+            </td>
+
+        </tr>
+    }
+
+
+</table>
+<br />
+@Html.ActionLink("Back to Portal", "Student", "ScholarshipRegistration")

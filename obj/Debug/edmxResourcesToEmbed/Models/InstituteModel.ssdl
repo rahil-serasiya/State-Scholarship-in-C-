@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InstituteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Institute">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Course" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Scholarship" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FavouritePet" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FavouriteMovie" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="LuckyNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SchlorshipCriteria">
+    <Key>
+      <PropertyRef Name="ScholarshipID" />
+    </Key>
+    <Property Name="ScholarshipID" Type="int" Nullable="false" />
+    <Property Name="ScholarshipName" Type="varchar" MaxLength="100" />
+    <Property Name="PercentageMerit" Type="int" Nullable="false" />
+    <Property Name="AnnualIncome" Type="int" />
+    <Property Name="InstituteId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Schlorshi__Insti__73BA3083">
+    <End Role="Institute" Type="Self.Institute" Multiplicity="0..1" />
+    <End Role="SchlorshipCriteria" Type="Self.SchlorshipCriteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchlorshipCriteria">
+        <PropertyRef Name="InstituteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InstituteModelStoreContainer">
+    <EntitySet Name="Institute" EntityType="Self.Institute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchlorshipCriteria" EntityType="Self.SchlorshipCriteria" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Schlorshi__Insti__73BA3083" Association="Self.FK__Schlorshi__Insti__73BA3083">
+      <End Role="Institute" EntitySet="Institute" />
+      <End Role="SchlorshipCriteria" EntitySet="SchlorshipCriteria" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

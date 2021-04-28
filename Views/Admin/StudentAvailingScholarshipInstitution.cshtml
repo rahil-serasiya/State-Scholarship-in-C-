@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Project.Models.ScholarshipRequest>
+
+@{
+    ViewBag.Title = "StudentAvailingScholarshipInstitution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>Student Availing Scholarship in Institution</h2></center>
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<p>
+    @Html.ActionLink("Print", "PrintAllApproved", "Admin")
+</p>
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Requestid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofApproval)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnnualIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovedByInstitution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requestid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.institutionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.institutionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateofApproval)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnnualIncome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApprovedByInstitution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipAmount)
+        </td>
+        
+    </tr>
+}
+
+</table>

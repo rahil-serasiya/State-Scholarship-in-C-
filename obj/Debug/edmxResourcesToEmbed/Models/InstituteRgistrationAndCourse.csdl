@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="institutemodel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="institute">
+    <Key>
+      <PropertyRef Name="RegistrationID" />
+    </Key>
+    <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+    <Property Name="InstitutionName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ins_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contact" Type="Int64" Nullable="false" />
+    <Property Name="FavoritePet" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FavoriteMovie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Luckynumber" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institute_details">
+    <Key>
+      <PropertyRef Name="ScholarshipID" />
+    </Key>
+    <Property Name="ScholarshipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="institutionID" Type="Int32" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ScholarshipName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ScholarshipAmount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SchlorshipCriterias" Relationship="institutemodel.FK__Schlorshi__Schol__7B5B524B" FromRole="Institute_details" ToRole="SchlorshipCriteria" />
+  </EntityType>
+  <EntityContainer Name="InstituteRegistrationAndScholarship" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="institutes" EntityType="Self.institute" />
+    <EntitySet Name="Institute_details" EntityType="Self.Institute_details" />
+    <EntitySet Name="SchlorshipCriterias" EntityType="institutemodel.SchlorshipCriteria" />
+    <AssociationSet Name="FK__Schlorshi__Schol__7B5B524B" Association="institutemodel.FK__Schlorshi__Schol__7B5B524B">
+      <End Role="Institute_details" EntitySet="Institute_details" />
+      <End Role="SchlorshipCriteria" EntitySet="SchlorshipCriterias" />
+    </AssociationSet>
+    <EntitySet Name="ScholarshipRequests" EntityType="institutemodel.ScholarshipRequest" />
+  </EntityContainer>
+  <EntityType Name="SchlorshipCriteria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScholarshipName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PercentageMerit" Type="Int32" Nullable="false" />
+    <Property Name="AnnualIncome" Type="Int32" />
+    <Property Name="InstituteId" Type="Int32" />
+    <Property Name="ScholarshipID" Type="Int32" />
+    <NavigationProperty Name="Institute_details" Relationship="institutemodel.FK__Schlorshi__Schol__7B5B524B" FromRole="SchlorshipCriteria" ToRole="Institute_details" />
+  </EntityType>
+  <Association Name="FK__Schlorshi__Schol__7B5B524B">
+    <End Type="institutemodel.Institute_details" Role="Institute_details" Multiplicity="0..1" />
+    <End Type="institutemodel.SchlorshipCriteria" Role="SchlorshipCriteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute_details">
+        <PropertyRef Name="ScholarshipID" />
+      </Principal>
+      <Dependent Role="SchlorshipCriteria">
+        <PropertyRef Name="ScholarshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ScholarshipRequest">
+    <Key>
+      <PropertyRef Name="Requestid" />
+    </Key>
+    <Property Name="Requestid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="StudentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="institutionId" Type="Int32" Nullable="false" />
+    <Property Name="institutionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ScholarshipID" Type="Int32" Nullable="false" />
+    <Property Name="ScholarshipName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Course" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateofApproval" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Score" Type="Int32" Nullable="false" />
+    <Property Name="AnnualIncome" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedByInstitution" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ScholarshipAmount" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

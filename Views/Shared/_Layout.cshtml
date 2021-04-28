@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Scholarship Portal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/CssStyle/MasterCss.css" rel="stylesheet" type="text/css" />
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #302b63;
+            color: white;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #302b63;
+        }
+    </style>
+    <script type="text/javascript">window.history.forward(-1);</script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Scholarship Portal", "Home", "Registrations", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Admin", "Login", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Institute", "Login", "institutes", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Session["ID"] != null)
+                {
+                    @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand "  })
+                }
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-brand" style="float:right;position:relative;">
+
+                    
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <br />
+        <p>&copy; @DateTime.Now.Year - Cognizant State Scholarship Application</p>
+    </footer>
+</div>
+</html>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InstituteModelStoreContainer" CdmEntityContainer="InstituteEntities">
+    <EntitySetMapping Name="Institutes">
+      <EntityTypeMapping TypeName="InstituteModel.Institute">
+        <MappingFragment StoreEntitySet="Institute">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Scholarship" ColumnName="Scholarship" />
+          <ScalarProperty Name="FavouritePet" ColumnName="FavouritePet" />
+          <ScalarProperty Name="FavouriteMovie" ColumnName="FavouriteMovie" />
+          <ScalarProperty Name="LuckyNumber" ColumnName="LuckyNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchlorshipCriterias">
+      <EntityTypeMapping TypeName="InstituteModel.SchlorshipCriteria">
+        <MappingFragment StoreEntitySet="SchlorshipCriteria">
+          <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+          <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+          <ScalarProperty Name="PercentageMerit" ColumnName="PercentageMerit" />
+          <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+          <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="institutemodel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="institute">
+    <Key>
+      <PropertyRef Name="RegistrationID" />
+    </Key>
+    <Property Name="RegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstitutionID" Type="int" Nullable="false" />
+    <Property Name="InstitutionName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Ins_Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Contact" Type="bigint" Nullable="false" />
+    <Property Name="FavoritePet" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FavoriteMovie" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Luckynumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institute_details">
+    <Key>
+      <PropertyRef Name="ScholarshipID" />
+    </Key>
+    <Property Name="ScholarshipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="institutionID" Type="int" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ScholarshipName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ScholarshipAmount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SchlorshipCriteria">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScholarshipName" Type="varchar" MaxLength="100" />
+    <Property Name="PercentageMerit" Type="int" Nullable="false" />
+    <Property Name="AnnualIncome" Type="int" />
+    <Property Name="InstituteId" Type="int" />
+    <Property Name="ScholarshipID" Type="int" />
+  </EntityType>
+  <EntityType Name="ScholarshipRequest">
+    <Key>
+      <PropertyRef Name="Requestid" />
+    </Key>
+    <Property Name="Requestid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="institutionId" Type="int" Nullable="false" />
+    <Property Name="institutionName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ScholarshipID" Type="int" Nullable="false" />
+    <Property Name="ScholarshipName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Course" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateofApproval" Type="date" Nullable="false" />
+    <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="AnnualIncome" Type="int" Nullable="false" />
+    <Property Name="ApprovedByInstitution" Type="varchar" MaxLength="100" />
+    <Property Name="ScholarshipAmount" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Schlorshi__Schol__7B5B524B">
+    <End Role="Institute_details" Type="Self.Institute_details" Multiplicity="0..1" />
+    <End Role="SchlorshipCriteria" Type="Self.SchlorshipCriteria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institute_details">
+        <PropertyRef Name="ScholarshipID" />
+      </Principal>
+      <Dependent Role="SchlorshipCriteria">
+        <PropertyRef Name="ScholarshipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="institutemodelStoreContainer">
+    <EntitySet Name="institute" EntityType="Self.institute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Institute_details" EntityType="Self.Institute_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchlorshipCriteria" EntityType="Self.SchlorshipCriteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScholarshipRequest" EntityType="Self.ScholarshipRequest" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Schlorshi__Schol__7B5B524B" Association="Self.FK__Schlorshi__Schol__7B5B524B">
+      <End Role="Institute_details" EntitySet="Institute_details" />
+      <End Role="SchlorshipCriteria" EntitySet="SchlorshipCriteria" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

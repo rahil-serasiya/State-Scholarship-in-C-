@@ -1,0 +1,91 @@
+﻿@model Project.Models.institute
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>institute</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InstitutionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstitutionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InstitutionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InstitutionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ins_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ins_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoritePet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoritePet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoriteMovie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoriteMovie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Luckynumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Luckynumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RegistrationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

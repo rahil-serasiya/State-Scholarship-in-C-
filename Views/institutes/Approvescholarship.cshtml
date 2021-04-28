@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Project.Models.ScholarshipRequest>
+
+@{
+    ViewBag.Title = "Approvescholarship";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<center><h2>Approve Scholarship Request</h2></center>
+
+<br />
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Requestid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateofApproval)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnnualIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApprovedByInstitution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </th>
+        <th>Approve | Reject</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("" + item.Requestid.ToString() + "", "RequestDetials", "institutes", new { id = item.Requestid }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.institutionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.institutionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofApproval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApprovedByInstitution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipAmount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditRequest", "institutes", new { id = item.Requestid }, null)
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to Dashboard", "InstituteDashboard", "institutes")
+</div>

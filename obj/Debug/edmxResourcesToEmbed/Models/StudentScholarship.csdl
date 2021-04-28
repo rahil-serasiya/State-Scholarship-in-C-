@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StateScholarshipModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="scholarshipdetail">
+    <Key>
+      <PropertyRef Name="student_Id" />
+    </Key>
+    <Property Name="student_Id" Type="Int32" Nullable="false" />
+    <Property Name="Marks" Type="Int32" Nullable="false" />
+    <Property Name="Grade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DemoCourse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="College" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="approvedbyScholarshipProvider" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="approvedbyInstitution" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="StateScholarshipEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="scholarshipdetails" EntityType="Self.scholarshipdetail" />
+  </EntityContainer>
+</Schema>

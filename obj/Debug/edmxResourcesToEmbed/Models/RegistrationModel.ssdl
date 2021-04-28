@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StateScholarshipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateofBirth" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Contact" Type="bigint" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_category" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FavouritePet" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FavouriteMovie" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LuckyNumber" Type="int" Nullable="false" />
+    <Property Name="approvedByProvider" Type="int" />
+    <Property Name="approvedByInstitution" Type="int" />
+  </EntityType>
+  <EntityContainer Name="StateScholarshipModelStoreContainer">
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

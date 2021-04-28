@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StateScholarshipModel4StoreContainer" CdmEntityContainer="StateScholarshipEntities4">
+    <EntitySetMapping Name="Helps">
+      <EntityTypeMapping TypeName="StateScholarshipModel4.Help">
+        <MappingFragment StoreEntitySet="Help">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+          <ScalarProperty Name="ISSUE" ColumnName="ISSUE" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateOfTicket" ColumnName="DateOfTicket" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="Solved" ColumnName="Solved" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

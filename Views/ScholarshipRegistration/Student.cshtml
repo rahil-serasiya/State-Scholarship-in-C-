@@ -1,0 +1,75 @@
+﻿<style>
+
+    h2 {
+        align-content: center;
+    }
+</style>
+<center><h2 class="alert alert-success">Student Page</h2></center>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Scholarship Portal", "Home", "Registrations", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+
+                <li class="righthelp">@Html.ActionLink("Raise Help Ticket", "HelpForm", "Help")</li>
+                <li> @Html.ActionLink("View Your Help Request", "HelpCheckRequest", "Login")</li>
+                <li> @Html.ActionLink("Institute Scholarship Status", "InstituteScholarshipStatus", "institutes", new { id = HttpContext.Current.Session["ID"].ToString() }, null)</li>
+                &nbsp; &nbsp;
+                <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div>
+    <center><h2 class="alert alert-info"> Welcome @Session["Name"], User ID - @Session["ID"]</h2></center>
+   
+
+</div>
+@if (ViewBag.SuccessMessage != null)
+{
+    <h3 class="alert alert-success">@ViewBag.SuccessMessage</h3>
+}
+
+@if (TempData["Eligible"] != null)
+{
+    <h3 class="alert alert-success">@TempData["Eligible"]</h3>
+}
+
+<h3>
+    <div class="box-3">
+        <div class="btn btn-success" onclick="location.href='@Url.Action("AddStudent","ScholarshipRegistration")'">
+            <span> Request Apply for Scholarship</span>
+        </div>
+    </div>
+</h3>
+ 
+<h3>
+    <div class="box-3">
+        <div class="btn btn-success" onclick="location.href='@Url.Action("AddStudent","ScholarshipRegistration")'">
+            <span>Check for request is approved or not</span>
+        </div>
+    </div>
+</h3>
+ 
+<h3>
+<div class="box-3">
+    <div class="btn btn-success" onclick="location.href='@Url.Action("ApplyForInstituionScholarship","ScholarshipRegistration")'">
+        <span>View and Apply for Institution Scholarships</span>
+    </div>
+</div>
+</h3>
+<h3>
+
+
+

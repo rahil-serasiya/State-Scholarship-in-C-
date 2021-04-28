@@ -1,0 +1,67 @@
+﻿@model Project.Models.scholarshipdetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2> Student Details</h2></center>
+<link href="~/Scripts/ScholarshipProDetails.css" rel="stylesheet" type="text/css" />
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal" id="table">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemoCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemoCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.College)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.College)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.approvedbyScholarshipProvider)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.approvedbyScholarshipProvider)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.approvedbyInstitution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.approvedbyInstitution)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.student_Id }) |
+    @Html.ActionLink("Back to View Requests", "ViewScholarshipRequest")
+</p>

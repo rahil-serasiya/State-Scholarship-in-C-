@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StateScholarshipModel3StoreContainer" CdmEntityContainer="StateScholarshipEntities3">
+    <EntitySetMapping Name="scholarshipdetails">
+      <EntityTypeMapping TypeName="StateScholarshipModel3.scholarshipdetail">
+        <MappingFragment StoreEntitySet="scholarshipdetails">
+          <ScalarProperty Name="student_Id" ColumnName="student_Id" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="DemoCourse" ColumnName="DemoCourse" />
+          <ScalarProperty Name="College" ColumnName="College" />
+          <ScalarProperty Name="approvedbyScholarshipProvider" ColumnName="approvedbyScholarshipProvider" />
+          <ScalarProperty Name="approvedbyInstitution" ColumnName="approvedbyInstitution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

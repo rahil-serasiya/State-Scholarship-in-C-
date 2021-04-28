@@ -1,0 +1,72 @@
+﻿@*@model Project.Models.institute*@
+
+@{
+    ViewBag.Title = "InstituteDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/AddStudent.css" rel="stylesheet" type="text/css" />
+<div class="navbar navbar-inverse navbar-fixed-top" style="font-size:18px">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Scholarship Portal", "Home", "Registrations", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+
+                <li class="righthelp">@Html.ActionLink("Profile", "EditInstitutionDetails", "institutes", new { id = HttpContext.Current.Session["InstitutionID"].ToString()}, null)</li>
+                <li> @Html.ActionLink("Edit Courses", "Index", "EditCourse", new { id = HttpContext.Current.Session["InstitutionID"].ToString() }, null)</li>
+                <li>@Html.ActionLink("Approve Scholarship", "Approvescholarship" , "institutes", new { id = HttpContext.Current.Session["InstitutionID"].ToString() }, null)</li>
+                <li>@Html.ActionLink("Generate Reports", "YearWiseReport", "institutes", new { id = HttpContext.Current.Session["InstitutionID"].ToString() }, null)</li>
+                &nbsp; &nbsp;
+                <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<center><h3 class="alert alert-info">Institution Dashboard for <em><b>@Session["InstitutionName"]</b></em></h3></center>
+
+
+
+<center>
+    <h3 class="alert alert-success">Institution ID : @Session["InstitutionID"]</h3>
+    </center>
+
+    @if (@TempData["ScholarshipAdded"] != null)
+    {
+        <h3 class="alert alert-success">@TempData["ScholarshipAdded"]</h3>
+
+    }
+
+
+    <h3>
+        <div class="box-3">
+            <div class="btn btn-success" onclick="location.href='@Url.Action("AddScholarshipDetails","institutes")'">
+                <span>Add Course</span>
+            </div>
+        </div>
+    </h3>
+
+
+    @*<div class="box-3">
+            <div class="btn btn-success" onclick="location.href='@Url.Action("Create","AddScholarshipCriteria")'">
+                <span>Add Scholarship Criteria</span>
+            </div>
+        </div>*@
+
+    <h3>
+        <div class="box-3">
+            <div class="btn btn-success" onclick="location.href='@Url.Action("DisplayScholorship","AddScholarshipCriteria")'">
+                <span>Update Criteria</span>
+            </div>
+        </div>
+    </h3>
+    
+
+
+

@@ -1,0 +1,31 @@
+﻿
+body {
+    background-color: gainsboro;
+    border-radius: 50px;
+}
+#form-horizontal {
+    border-radius: 50px;
+}
+.form-group {
+    border-radius: 50px;
+}
+
+
+h3 {
+    text-align: center;
+}
+
+.admindiv {
+    background-color: thistle;
+}
+
+.form-group {
+    padding: 0% 5% 0% 20% ;
+}
+.logout
+{
+    float:right;
+}
+
+
+

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="institutemodel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="institute">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstitutionID" Type="int" Nullable="false" />
+          <Property Name="InstitutionName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Ins_Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contact" Type="bigint" Nullable="false" />
+          <Property Name="FavoritePet" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FavoriteMovie" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Luckynumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Institute_details">
+          <Key>
+            <PropertyRef Name="ScholarshipID" />
+          </Key>
+          <Property Name="ScholarshipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="institutionID" Type="int" Nullable="false" />
+          <Property Name="CourseName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ScholarshipName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ScholarshipAmount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SchlorshipCriteria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScholarshipName" Type="varchar" MaxLength="100" />
+          <Property Name="PercentageMerit" Type="int" Nullable="false" />
+          <Property Name="AnnualIncome" Type="int" />
+          <Property Name="InstituteId" Type="int" />
+          <Property Name="ScholarshipID" Type="int" />
+        </EntityType>
+        <EntityType Name="ScholarshipRequest">
+          <Key>
+            <PropertyRef Name="Requestid" />
+          </Key>
+          <Property Name="Requestid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="institutionId" Type="int" Nullable="false" />
+          <Property Name="institutionName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ScholarshipID" Type="int" Nullable="false" />
+          <Property Name="ScholarshipName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Course" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateofApproval" Type="date" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="AnnualIncome" Type="int" Nullable="false" />
+          <Property Name="ApprovedByInstitution" Type="varchar" MaxLength="100" />
+          <Property Name="ScholarshipAmount" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Schlorshi__Schol__7B5B524B">
+          <End Role="Institute_details" Type="Self.Institute_details" Multiplicity="0..1" />
+          <End Role="SchlorshipCriteria" Type="Self.SchlorshipCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute_details">
+              <PropertyRef Name="ScholarshipID" />
+            </Principal>
+            <Dependent Role="SchlorshipCriteria">
+              <PropertyRef Name="ScholarshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="institutemodelStoreContainer">
+          <EntitySet Name="institute" EntityType="Self.institute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Institute_details" EntityType="Self.Institute_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchlorshipCriteria" EntityType="Self.SchlorshipCriteria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScholarshipRequest" EntityType="Self.ScholarshipRequest" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Schlorshi__Schol__7B5B524B" Association="Self.FK__Schlorshi__Schol__7B5B524B">
+            <End Role="Institute_details" EntitySet="Institute_details" />
+            <End Role="SchlorshipCriteria" EntitySet="SchlorshipCriteria" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="institutemodel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="institute">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstitutionID" Type="Int32" Nullable="false" />
+          <Property Name="InstitutionName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ins_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="Int64" Nullable="false" />
+          <Property Name="FavoritePet" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FavoriteMovie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Luckynumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Institute_details">
+          <Key>
+            <PropertyRef Name="ScholarshipID" />
+          </Key>
+          <Property Name="ScholarshipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="institutionID" Type="Int32" Nullable="false" />
+          <Property Name="CourseName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ScholarshipName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ScholarshipAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SchlorshipCriterias" Relationship="institutemodel.FK__Schlorshi__Schol__7B5B524B" FromRole="Institute_details" ToRole="SchlorshipCriteria" />
+        </EntityType>
+        <EntityContainer Name="InstituteRegistrationAndScholarship" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="institutes" EntityType="Self.institute" />
+          <EntitySet Name="Institute_details" EntityType="Self.Institute_details" />
+          <EntitySet Name="SchlorshipCriterias" EntityType="institutemodel.SchlorshipCriteria" />
+          <AssociationSet Name="FK__Schlorshi__Schol__7B5B524B" Association="institutemodel.FK__Schlorshi__Schol__7B5B524B">
+            <End Role="Institute_details" EntitySet="Institute_details" />
+            <End Role="SchlorshipCriteria" EntitySet="SchlorshipCriterias" />
+          </AssociationSet>
+          <EntitySet Name="ScholarshipRequests" EntityType="institutemodel.ScholarshipRequest" />
+        </EntityContainer>
+        <EntityType Name="SchlorshipCriteria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScholarshipName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PercentageMerit" Type="Int32" Nullable="false" />
+          <Property Name="AnnualIncome" Type="Int32" />
+          <Property Name="InstituteId" Type="Int32" />
+          <Property Name="ScholarshipID" Type="Int32" />
+          <NavigationProperty Name="Institute_details" Relationship="institutemodel.FK__Schlorshi__Schol__7B5B524B" FromRole="SchlorshipCriteria" ToRole="Institute_details" />
+        </EntityType>
+        <Association Name="FK__Schlorshi__Schol__7B5B524B">
+          <End Type="institutemodel.Institute_details" Role="Institute_details" Multiplicity="0..1" />
+          <End Type="institutemodel.SchlorshipCriteria" Role="SchlorshipCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Institute_details">
+              <PropertyRef Name="ScholarshipID" />
+            </Principal>
+            <Dependent Role="SchlorshipCriteria">
+              <PropertyRef Name="ScholarshipID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ScholarshipRequest">
+          <Key>
+            <PropertyRef Name="Requestid" />
+          </Key>
+          <Property Name="Requestid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="StudentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="institutionId" Type="Int32" Nullable="false" />
+          <Property Name="institutionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ScholarshipID" Type="Int32" Nullable="false" />
+          <Property Name="ScholarshipName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Course" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateofApproval" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="AnnualIncome" Type="Int32" Nullable="false" />
+          <Property Name="ApprovedByInstitution" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ScholarshipAmount" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="institutemodelStoreContainer" CdmEntityContainer="InstituteRegistrationAndScholarship">
+          <EntitySetMapping Name="institutes">
+            <EntityTypeMapping TypeName="institutemodel.institute">
+              <MappingFragment StoreEntitySet="institute">
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+                <ScalarProperty Name="InstitutionID" ColumnName="InstitutionID" />
+                <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Ins_Password" ColumnName="Ins_Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="FavoritePet" ColumnName="FavoritePet" />
+                <ScalarProperty Name="FavoriteMovie" ColumnName="FavoriteMovie" />
+                <ScalarProperty Name="Luckynumber" ColumnName="Luckynumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Institute_details">
+            <EntityTypeMapping TypeName="institutemodel.Institute_details">
+              <MappingFragment StoreEntitySet="Institute_details">
+                <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+                <ScalarProperty Name="institutionID" ColumnName="institutionID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+                <ScalarProperty Name="ScholarshipAmount" ColumnName="ScholarshipAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchlorshipCriterias">
+            <EntityTypeMapping TypeName="institutemodel.SchlorshipCriteria">
+              <MappingFragment StoreEntitySet="SchlorshipCriteria">
+                <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+                <ScalarProperty Name="InstituteId" ColumnName="InstituteId" />
+                <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+                <ScalarProperty Name="PercentageMerit" ColumnName="PercentageMerit" />
+                <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScholarshipRequests">
+            <EntityTypeMapping TypeName="institutemodel.ScholarshipRequest">
+              <MappingFragment StoreEntitySet="ScholarshipRequest">
+                <ScalarProperty Name="ScholarshipAmount" ColumnName="ScholarshipAmount" />
+                <ScalarProperty Name="ApprovedByInstitution" ColumnName="ApprovedByInstitution" />
+                <ScalarProperty Name="AnnualIncome" ColumnName="AnnualIncome" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="DateofApproval" ColumnName="DateofApproval" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="ScholarshipName" ColumnName="ScholarshipName" />
+                <ScalarProperty Name="ScholarshipID" ColumnName="ScholarshipID" />
+                <ScalarProperty Name="institutionName" ColumnName="institutionName" />
+                <ScalarProperty Name="institutionId" ColumnName="institutionId" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Requestid" ColumnName="Requestid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

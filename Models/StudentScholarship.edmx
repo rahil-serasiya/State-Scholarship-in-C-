@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StateScholarshipModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="scholarshipdetails">
+          <Key>
+            <PropertyRef Name="student_Id" />
+          </Key>
+          <Property Name="student_Id" Type="int" Nullable="false" />
+          <Property Name="Marks" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DemoCourse" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="College" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="approvedbyScholarshipProvider" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="approvedbyInstitution" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StateScholarshipModel3StoreContainer">
+          <EntitySet Name="scholarshipdetails" EntityType="Self.scholarshipdetails" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StateScholarshipModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="scholarshipdetail">
+          <Key>
+            <PropertyRef Name="student_Id" />
+          </Key>
+          <Property Name="student_Id" Type="Int32" Nullable="false" />
+          <Property Name="Marks" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DemoCourse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="College" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="approvedbyScholarshipProvider" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="approvedbyInstitution" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="StateScholarshipEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="scholarshipdetails" EntityType="Self.scholarshipdetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StateScholarshipModel3StoreContainer" CdmEntityContainer="StateScholarshipEntities3">
+          <EntitySetMapping Name="scholarshipdetails">
+            <EntityTypeMapping TypeName="StateScholarshipModel3.scholarshipdetail">
+              <MappingFragment StoreEntitySet="scholarshipdetails">
+                <ScalarProperty Name="student_Id" ColumnName="student_Id" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="DemoCourse" ColumnName="DemoCourse" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="approvedbyScholarshipProvider" ColumnName="approvedbyScholarshipProvider" />
+                <ScalarProperty Name="approvedbyInstitution" ColumnName="approvedbyInstitution" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

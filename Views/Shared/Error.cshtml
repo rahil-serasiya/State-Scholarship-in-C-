@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title class="alert alert-danger">Error</title>
+</head>
+<body>
+    <hgroup class="alert alert-danger">
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+        @if (ViewBag.Errormsg != null)
+        {
+            <p class="alert alert-danger"> @ViewBag.Errormsg</p>
+
+        }
+    </hgroup>
+</body>
+</html>

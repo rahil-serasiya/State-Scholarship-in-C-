@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StateScholarshipModel1StoreContainer" CdmEntityContainer="StateScholarshipEntities1">
+    <EntitySetMapping Name="AdminCreds">
+      <EntityTypeMapping TypeName="StateScholarshipModel1.AdminCred">
+        <MappingFragment StoreEntitySet="AdminCreds">
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Admin_Username" ColumnName="Admin_Username" />
+          <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

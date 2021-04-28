@@ -1,0 +1,124 @@
+﻿@model Project.Models.ScholarshipRequest
+
+@{
+    ViewBag.Title = "RequestDetials";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/ScholarshipProDetails.css" rel="stylesheet" type="text/css" />
+<center>
+    <h2>Request ID Details</h2>
+</center>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal" id="table">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Requestid)*@
+            Request ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requestid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.institutionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.institutionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.institutionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.institutionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofApproval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofApproval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnnualIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnnualIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApprovedByInstitution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApprovedByInstitution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Approvescholarship")
+</p>

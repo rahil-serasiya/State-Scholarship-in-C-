@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Project.Models.Institute_details>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+
+<center><h2 class="alert alert-info"> <strong><i>@Session["InstitutionName"]</i></strong></h2></center>
+
+
+<hr />
+
+<table class="table" id="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ScholarshipID)*@
+            Scholarship ID
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.institutionID)*@
+            Institution ID
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CourseName)*@
+            Course Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ScholarshipName)*@
+            Scholarship Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ScholarshipAmount)*@
+            Scholarship Amount
+        </th>
+        <th>Edit or Delete</th>
+        <th>Add Scholarship Criteria</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.institutionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScholarshipAmount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit |", "Edit", new { id = item.ScholarshipID })
+                @Html.ActionLink("Details |", "Details", new { id = item.ScholarshipID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ScholarshipID })
+            </td>
+           
+            <td>
+               @Html.ActionLink("Add Criteria", "Create", "AddScholarshipCriteria", new { sid = item.ScholarshipID, insID = item.institutionID,
+                                                            ScholarName = item.ScholarshipName},null)
+                  @*@Html.ActionLink("Update", "Edit", new { id = item.id })*@
+                 
+            </td>
+            <td>
+                @Html.ActionLink("Update or check", "DisplayScholorship", "AddScholarshipCriteria")
+            </td>
+        </tr>
+    }
+
+</table>
+<span class="alert-warning"> <strong><em>Note: Now Institution can Add, Delete, Update the courses Offered</em></strong></span>
+<br />
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Back To Portal", "InstituteDashboard", "institutes")
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Project.Models.scholarshipdetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<link href="~/Scripts/table.css" rel="stylesheet" type="text/css" />*@
+<link href="~/CssStyle/TableDesign.css" rel="stylesheet" type="text/css" />
+<center><h2 class="alert alert-info ">Scholarship Requests</h2></center>
+
+
+<table class="table" id="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.student_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DemoCourse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.College)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvedbyScholarshipProvider)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.approvedbyInstitution)
+        </th>
+        <th>Approve</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("" + item.student_Id.ToString() + "", "Details", new { id = item.student_Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DemoCourse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.College)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedbyScholarshipProvider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approvedbyInstitution)
+            </td>
+            <td>
+                @Html.ActionLink("Approve", "Edit", new { id = item.student_Id })
+               
+
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Back to Portal", "ScholarshipPro", "ScholarshipRegistration")

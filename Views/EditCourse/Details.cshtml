@@ -1,0 +1,51 @@
+﻿@model Project.Models.Institute_details
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/ScholarshipProDetails.css" rel="stylesheet" type="text/css" />
+<h2>Details</h2>
+
+<div>
+    <h4>Institute_details</h4>
+    <hr />
+    <dl class="dl-horizontal" id="table">
+        <dt>
+            @Html.DisplayNameFor(model => model.institutionID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.institutionID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScholarshipAmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScholarshipID }) |
+    @Html.ActionLink("Back to List", "Index",new { id = Model.institutionID })
+</p>

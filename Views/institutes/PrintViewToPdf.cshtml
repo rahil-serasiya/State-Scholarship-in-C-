@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project.Models.Institute_details>
+
+@{
+    ViewBag.Title = "PrintViewToPdf";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PrintViewToPdf</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.institutionID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScholarshipAmount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.institutionID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScholarshipAmount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

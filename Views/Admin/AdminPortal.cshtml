@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "AdminPortal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Scripts/AdminPortal.css" rel="stylesheet" type="text/css" />
+
+<body>
+    <div class="active modal-header"><center><h1 class="alert alert-info">Admin Dashboard  </h1></center> </div>
+    <div class="container-fluid">
+        <a class="notification">
+
+            <input type="button" class="check" Value="Check Ticket" onclick="location.href='@Url.Action("Index","Help")'">
+            <input type="button" class="check" Value="Generate Reports" onclick="location.href='@Url.Action("YearWiseReport","Admin")'">
+
+            <span class="badge"> @ViewBag.Data</span>&nbsp;
+        </a>
+    </div>
+
+    <br />
+    <br />
+    
+</body>
+
+

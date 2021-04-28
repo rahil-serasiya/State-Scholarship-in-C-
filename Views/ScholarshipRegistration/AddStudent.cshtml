@@ -1,0 +1,117 @@
+﻿@model Project.Models.scholarshipdetail
+
+@{
+    ViewBag.Title = "AddStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<link href="~/Scripts/AddStudent.css" rel="stylesheet" type="text/css" />*@
+
+
+<link href="~/Scripts/Create.css" rel="stylesheet" type="text/css" />
+
+
+<style>
+    body {
+        background-color: gainsboro; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        border-radius: 50px;
+    }
+
+    .form-control {
+        border-radius: 50px;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+    }
+
+    
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    <div class="admindiv">
+        <h3> Welcome @Session["Name"], Please fill the neccessary details to Request for Scholarship</h3>
+    </div>
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="center-block" style="border:solid;">
+        <br />
+        <div class="form-group">
+            @Html.LabelFor(model => model.student_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.student_Id, new { htmlAttributes = new { @class = "form-control", @Value = @Session["ID"] } })
+                @Html.ValidationMessageFor(model => model.student_Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Marks, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Marks, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Marks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Grade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Grade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DemoCourse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DemoCourse, new List<SelectListItem>
+                {
+                    new SelectListItem{Text="Select",Value="Select"},
+                    new SelectListItem{Text="B.Tech",Value="B.Tech"},
+                    new SelectListItem{Text="M.Tech",Value="M.tech"},
+                    new SelectListItem{Text="MBA",Value="MBA"},
+                    new SelectListItem{Text="B.SC",Value="B.sc"},
+                    new SelectListItem{Text="BBA",Value="BBA"},
+                }, new { htmlAttributes = new { @class = "form-control" }, style = "width: 300px;height:30px;border-radius: 50px;color:black;" })
+
+
+                @Html.ValidationMessageFor(model => model.DemoCourse, "", new { @class = "text-danger", })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.College, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.College, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.College, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="submit" value="Submit" class="btn btn-success" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label class="label-success">@ViewBag.SuccessMessage</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label class="label-danger">@ViewBag.Message</label>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+}
+@Html.ActionLink("Back to Portal", "Student", "ScholarshipRegistration")
+
